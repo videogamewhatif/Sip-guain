@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 350">
+<defs>
+  <g id="leaf" stroke="#74745a" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#d9d5b8" fill-opacity=".54" d="M0 0Q-22-9-35-24l7-2q-14-8-19-20l9 1-6-11 12 3q-2-13 2-21l9 12q2-17 8-26l5 14q11-17 22-24l-3 17 13-7-3 14 11-2-3 12 10-1q-4 14-16 22l7 1Q24-19 0 0Z"/>
+    <path d="M0 0Q5-41 12-88M1-4Q-14-33-40-48M4-19Q-7-43-26-63M5-24Q17-41 28-50M8-45Q15-61 24-71M9-53Q3-65-11-76M-8-22l-19-5m41-29 9-5M-16-36l-7-11m31 6 1-17" stroke-width=".7" opacity=".83"/>
+  </g>
+</defs>
+<g fill="none" stroke="#74745a" stroke-linecap="round">
+  <path d="M46 340Q122 243 128 166T161 27M86 279Q72 225 33 199m69 55q67-15 94-54m-71 3q-28-36-50-46m56 19q51-14 66-54m-61 17q-6-45-43-76m53 35q33-16 52-42m-76 163q35 15 34 41t-16 6q-3-12 13-10" stroke-width="1.6"/>
+  <path d="M145 118q40-7 43 11t-14 7q-6-7 4-11M130 170q-21 9-28-6t10-12q8 8-2 12" stroke-width="1"/>
+</g>
+<use href="#leaf" transform="translate(89 282) rotate(-80) scale(.87)"/>
+<use href="#leaf" transform="translate(142 235) rotate(65) scale(.88)"/>
+<use href="#leaf" transform="translate(122 199) rotate(-57) scale(1.05)"/>
+<use href="#leaf" transform="translate(154 162) rotate(51) scale(.72)"/>
+<use href="#leaf" transform="translate(134 126) rotate(-44) scale(.65)"/>
+<use href="#leaf" transform="translate(167 85) rotate(55) scale(.64)"/>
+<use href="#leaf" transform="translate(155 48) rotate(-8) scale(.53)"/>
+<g transform="translate(193 196)" stroke="#74745a" fill="#aaa58a" fill-opacity=".45">
+<path d="M-17 13Q-15-10 4-14L13-21" fill="none"/>
+<circle cx="0" cy="0" r="8"/><circle cx="15" cy="3" r="8"/><circle cx="-5" cy="14" r="8"/><circle cx="9" cy="16" r="9"/><circle cx="23" cy="15" r="7"/><circle cx="1" cy="28" r="8"/><circle cx="16" cy="30" r="8"/><circle cx="8" cy="42" r="7"/>
+</g>
+</svg>
