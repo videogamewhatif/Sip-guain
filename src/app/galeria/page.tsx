@@ -1,13 +1,33 @@
-import { Chapter } from '@/components/editorial';
-import Gallery from '@/components/gallery';
-import { gallery } from '@/data/content';
-import { seo } from '@/lib/seo';
+import type { Metadata } from "next";
+import { GalleryGrid } from "@/components/gallery/GalleryGrid";
+import { PageHero } from "@/components/ui/primitives";
+import { galleryCategories } from "@/data/gallery";
+import { getGallery } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = seo('Galería', 'Fotografías de los vinos, las ilustraciones, la colección y los encuentros de Sip Güain.', '/galeria');
+export const metadata: Metadata = pageMetadata({
+  title: "Galería",
+  description: "Galería fotográfica de Sip Güain: vinos, etiquetas, arte, viñedos, experiencias y merchandising.",
+  path: "/galeria",
+});
 
-export default function GalleryPage() {
-  return <>
-    <Chapter kicker="Galería" title="El universo Sip Güain en imágenes." description="Botellas, etiquetas, ilustraciones y escenas de nuestros encuentros." className="chapter-gallery" />
-    <section className="section shell" aria-label="Galería fotográfica"><Gallery photos={gallery} /></section>
-  </>;
+export default async function GalleryPage() {
+  const images = await getGallery();
+  return (
+    <>
+      <PageHero
+        chapter="IX"
+        eyebrow="Galería"
+        title={
+          <>
+            Un álbum <em className="text-terracotta">de capítulos</em>
+          </>
+        }
+        intro="Botellas, etiquetas, ilustraciones, mesas compartidas y piezas de la colección. Filtra por categoría y abre cada fotografía para verla en grande."
+      />
+      <section aria-label="Fotografías" className="container-editorial pb-24 md:pb-32">
+        <GalleryGrid images={images} categories={galleryCategories} />
+      </section>
+    </>
+  );
 }

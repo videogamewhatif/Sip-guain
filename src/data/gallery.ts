@@ -1,0 +1,43 @@
+import type { GalleryCategory, GalleryImage } from "@/types/content";
+
+export const galleryCategories: { id: GalleryCategory | "todas"; label: string }[] = [
+  { id: "todas", label: "Todas" },
+  { id: "vinos", label: "Vinos" },
+  { id: "etiquetas", label: "Etiquetas" },
+  { id: "arte", label: "Arte" },
+  { id: "vinedos", label: "Viñedos" },
+  { id: "experiencias", label: "Experiencias" },
+  { id: "merch", label: "Merch" },
+  { id: "marca", label: "Marca" },
+];
+
+export const gallery: GalleryImage[] = [
+  { id: "g01", category: "vinos", src: "/images/wines/malbec-mesa-charcuteria.webp", alt: "Malbec y Tempranillo Sip Güain sobre una mesa con uvas y charcutería", width: 1496, height: 1496, caption: "Sobremesa al aire libre" },
+  { id: "g02", category: "etiquetas", src: "/images/wines/malbec-el-regalo-de-la-monarca.webp", alt: "Botella Malbec El regalo de la monarca", width: 1200, height: 1200, caption: "El regalo de la monarca · Malbec" },
+  { id: "g03", category: "etiquetas", src: "/images/wines/tempranillo.webp", alt: "Botella Tempranillo Sip Güain", width: 1200, height: 1200, caption: "Tempranillo" },
+  { id: "g04", category: "arte", src: "/images/art/el-regalo-de-la-monarca-ilustracion.webp", alt: "Ilustración completa de El regalo de la monarca", width: 1555, height: 2200, caption: "El regalo de la monarca · Danny Sixx" },
+  { id: "g05", category: "arte", src: "/images/art/el-regalo-de-la-monarca-poster.webp", alt: "Póster enmarcado de El regalo de la monarca", width: 1200, height: 1200, caption: "Póster de edición limitada" },
+  { id: "g06", category: "arte", src: "/images/art/el-regalo-de-la-monarca-detalle.webp", alt: "Detalle de la figura alada de la ilustración", width: 1200, height: 1200, caption: "Detalle de la etiqueta" },
+  { id: "g07", category: "vinedos", src: "/images/vineyards/origen-vinedo.webp", alt: "Racimo de uvas tintas frente a un viñedo en colinas", width: 1920, height: 1080, caption: "Origen" },
+  { id: "g08", category: "vinedos", src: "/images/vineyards/vinedo-crepusculo.webp", alt: "Hileras de vid al atardecer frente a montañas", width: 1480, height: 986, caption: "Viñedo al atardecer" },
+  { id: "g09", category: "vinedos", src: "/images/vineyards/botellas-ariel.webp", alt: "Cuatro botellas de vino con etiqueta Ariel", width: 1200, height: 1200, caption: "Ariel, productor colaborador" },
+  { id: "g10", category: "experiencias", src: "/images/experiences/cata-monarca-01.webp", alt: "Participante de una cata levanta una copa de vino tinto", width: 1200, height: 1200 },
+  { id: "g11", category: "experiencias", src: "/images/experiences/cata-monarca-02.webp", alt: "Mesa compartida con quesos, galletas y botellas", width: 1200, height: 1200 },
+  { id: "g12", category: "experiencias", src: "/images/experiences/cata-monarca-03.webp", alt: "Conversación alrededor de una mesa de cata", width: 1200, height: 1200 },
+  { id: "g13", category: "experiencias", src: "/images/experiences/brindis.webp", alt: "Brindis con copas de vino tinto", width: 1200, height: 1200, caption: "Salud" },
+  { id: "g14", category: "experiencias", src: "/images/experiences/cata-lectura.webp", alt: "Asistentes leyendo durante una cata", width: 1294, height: 1053, caption: "Leer y catar" },
+  { id: "g15", category: "experiencias", src: "/images/experiences/mesa-cata.webp", alt: "Copas y comida en una mesa de cata", width: 1080, height: 1080 },
+  { id: "g16", category: "experiencias", src: "/images/experiences/equipo-evento.webp", alt: "Tres personas con playeras de Sip Güain en un evento", width: 1365, height: 2048 },
+  { id: "g17", category: "experiencias", src: "/images/experiences/descorche.webp", alt: "Manos descorchando una botella", width: 1359, height: 985, caption: "Descorchar" },
+  { id: "g18", category: "experiencias", src: "/images/experiences/copa-exterior.webp", alt: "Copa de vino sobre una mesa larga al aire libre", width: 1920, height: 1280 },
+  { id: "g19", category: "merch", src: "/images/merch/playera-sip-guain-lifestyle.webp", alt: "Playera color vino Sip Güain", width: 1200, height: 1500 },
+  { id: "g20", category: "merch", src: "/images/merch/tote-bag-foto-01.webp", alt: "Tote bag Sip Güain sobre un sofá terracota", width: 1650, height: 2200 },
+  { id: "g21", category: "merch", src: "/images/merch/tote-bag-foto-02.webp", alt: "Dos tote bags Sip Güain", width: 1650, height: 2200 },
+  { id: "g22", category: "merch", src: "/images/merch/playera-ilustracion-negra.webp", alt: "Playera negra con ilustración", width: 1080, height: 1080 },
+  { id: "g23", category: "merch", src: "/images/merch/playera-logo-blanca.webp", alt: "Playera blanca con el logotipo Ü", width: 1080, height: 1080 },
+  { id: "g24", category: "merch", src: "/images/merch/playera-logo-negra.webp", alt: "Playera negra con el logotipo Ü", width: 1080, height: 1080 },
+  { id: "g25", category: "merch", src: "/images/merch/tote-bag-monograma.webp", alt: "Tote bag con monograma S G y racimo", width: 1200, height: 1200 },
+  { id: "g26", category: "marca", src: "/images/experiences/playera-detalle.webp", alt: "Detalle del logotipo Ü en una playera negra", width: 1078, height: 709 },
+  { id: "g27", category: "marca", src: "/images/branding/frase-historias.webp", alt: "Frase: Cada sorbo revela un matiz distinto, una historia por contar", width: 420, height: 289 },
+  { id: "g28", category: "marca", src: "/images/branding/frase-vino.webp", alt: "Frase: En el vino y la vida, la grandeza radica en el sentir", width: 420, height: 289 },
+];

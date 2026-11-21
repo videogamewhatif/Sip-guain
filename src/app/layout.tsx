@@ -1,39 +1,70 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import Image from "next/image";
-import { Camera } from 'lucide-react';
-import { AgeGate, Header } from '@/components/navigation';
-import { email, instagram, official } from '@/data/content';
-import { siteURL, jsonLd } from '@/lib/seo';
-import '@fontsource-variable/playfair-display';
-import '@fontsource-variable/playfair-display/wght-italic.css';
-import '@fontsource-variable/montserrat';
-import './globals.css';
+import type { Metadata, Viewport } from "next";
+import { Montserrat, Playfair_Display } from "next/font/google";
+import { AgeGate, ageGateBootScript } from "@/components/layout/AgeGate";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { jsonLd, organizationJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
+import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: siteURL,
-  title: { default: 'Sip Güain · Historias que se descorchan', template: '%s · Sip Güain' },
-  icons: { icon: '/images/monarch.svg' },
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} · ${siteConfig.concept}`,
+    template: `%s · ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: ["vino mexicano", "vinos del Bajío", "Malbec", "Tempranillo", "vino y literatura", "Sip Güain", "arte", "Aguascalientes", "San Luis Potosí"],
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Sip Güain · Maridaje de vino con letras" }],
+  },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
+  formatDetection: { telephone: false },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <html lang="es-MX">
-    <body>
-      <a href="#contenido" className="skip-link">Ir al contenido</a>
-      <Header />
-      <main id="contenido" tabIndex={-1}>{children}</main>
-      <footer className="footer">
-        <div className="shell footer-grid">
-          <div><Link className="footer-logo" href="/" aria-label="Sip Güain, inicio"><Image src="/images/logo-original.svg" alt="Sip Güain" width={154} height={60} unoptimized /></Link><p>Maridaje de vino con letras</p></div>
-          <nav aria-label="Enlaces del pie de página"><Link href="/galeria">Galería</Link><Link href="/contacto">Contacto</Link><Link href="/aviso-de-privacidad">Aviso de privacidad</Link></nav>
-          <div><a href={instagram} className="social"><Camera size={19} aria-hidden="true" /> Instagram</a><a href={'mailto:' + email}>{email}</a></div>
-        </div>
-        <div className="shell footer-note">Sip Güain · México <span>Disfruta con moderación. Contenido para mayores de 18 años.</span></div>
-      </footer>
-      <AgeGate />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
-        '@context': 'https://schema.org', '@type': 'Organization', name: 'Sip Güain', url: official, email, sameAs: [instagram],
-      }) }} />
-    </body>
-  </html>;
+export const viewport: Viewport = {
+  themeColor: "#f2e9da",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="es-MX" className={`${playfair.variable} ${montserrat.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Se ejecuta antes del primer pintado: marca JS disponible y edad confirmada. */}
+        <script dangerouslySetInnerHTML={{ __html: ageGateBootScript }} />
+        <noscript>
+          <style>{`.age-gate{display:none!important}html body{overflow:auto!important}`}</style>
+        </noscript>
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationJsonLd())} />
+      </head>
+      <body className="min-h-svh antialiased">
+        <Header />
+        <main id="contenido" tabIndex={-1} className="outline-none">
+          {children}
+        </main>
+        <Footer />
+        <AgeGate />
+      </body>
+    </html>
+  );
 }
